@@ -72,7 +72,12 @@ public class App extends Application {
        root.setAlignment(Pos.CENTER); //modifier position
        root.setPadding(new Insets(25)); //espacement
        ImageView addImageView = new ImageView(getClass().getResource("/resources/images/plus.png").toString());
+       ImageView addImageViewHover = new ImageView(getClass().getResource("/resources/images/plushover.png").toString());
+
+
        ImageView remImageView = new ImageView(getClass().getResource("/resources/images/moins.png").toString());
+       ImageView remImageViewHover = new ImageView(getClass().getResource("/resources/images/moinshover.png").toString());
+
 
        label= new Label("Compteur = 0");
        addOne = new Button("Ajouter 1");
@@ -80,11 +85,22 @@ public class App extends Application {
        addOne.setOnAction(( e)-> updateLabel(++count));
        addOne.setMinWidth(100);
        addOne.setGraphic(addImageView);
-
+       addOne.setOnMouseEntered((e) -> {
+           addOne.setGraphic(addImageViewHover);
+       });
+       addOne.setOnMouseExited((e) -> {
+           addOne.setGraphic(addImageView);
+       });
 
        remOne.setOnAction(( e)-> updateLabel(--count));
        remOne.setMinWidth(100);
        remOne.setGraphic(remImageView);
+       remOne.setOnMouseEntered((e) -> {
+           remOne.setGraphic(remImageViewHover);
+       });
+       remOne.setOnMouseExited((e) -> {
+           remOne.setGraphic(remImageView);
+       });
 
        root.getChildren().addAll(label, addOne, remOne);
        Scene scene = new Scene(root, 600, 300);
