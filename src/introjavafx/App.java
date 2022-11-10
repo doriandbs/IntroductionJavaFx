@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -20,12 +21,12 @@ import javafx.stage.Stage;
 
 
 public class App extends Application {
-/*
-    public static void main(String[] args){
 
-    }
+   /* public static void main(String[] args){
 
-*/  private int count = 0;
+    }*/
+
+ private int count = 0;
     private Label label;
 
     private Button addOne;
@@ -59,6 +60,8 @@ public class App extends Application {
             }
         }).start();
 */
+       AnchorPane pan = FXMLLoader.load(getClass().getResource("/view/hello-view.fxml"));
+       Scene scene = new Scene(pan);
         mainScreen.setTitle("Compteur de click");
        //StackPane root = new StackPane(); //plateau
 
@@ -68,7 +71,7 @@ public class App extends Application {
        //root.getChildren().add(rectangle);
        //root.getChildren().add(label);
        //root.getChildren().add(new Background(Color.RED));
-       VBox root = new VBox(10);
+       /*VBox root = new VBox(10);
        root.setAlignment(Pos.CENTER); //modifier position
        root.setPadding(new Insets(25)); //espacement
        ImageView addImageView = new ImageView(getClass().getResource("/resources/images/plus.png").toString());
@@ -103,7 +106,7 @@ public class App extends Application {
        });
 
        root.getChildren().addAll(label, addOne, remOne);
-       Scene scene = new Scene(root, 600, 300);
+       Scene scene = new Scene(root, 600, 300);*/
 
        mainScreen.setScene(scene);
 
@@ -115,3 +118,5 @@ public class App extends Application {
         label.setText("Bouton cliqué : " + count + " fois");
     }
 }
+
+
